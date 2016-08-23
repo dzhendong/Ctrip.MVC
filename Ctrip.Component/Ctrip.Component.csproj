@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B5751DE5-242D-42EE-97F2-58134808DB9B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ctrip.Component</RootNamespace>
+    <AssemblyName>Ctrip.Component</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Grid\Column\ButtonColumn.cs" />
+    <Compile Include="Grid\Column\DateTimeColumn.cs" />
+    <Compile Include="Grid\Column\ImgColumn.cs" />
+    <Compile Include="Grid\Column\LinkColumn.cs" />
+    <Compile Include="Grid\Column\NumberColumn.cs" />
+    <Compile Include="Grid\Column\TableColumn.cs" />
+    <Compile Include="Grid\Column\TextColumn.cs" />
+    <Compile Include="Grid\Common\CommonHelper.cs" />
+    <Compile Include="Grid\Common\Enum.cs" />
+    <Compile Include="Grid\Common\Formater.cs" />
+    <Compile Include="Grid\Table\Options.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Grid\Table\StyleParameter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Grid\Table\TableBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Grid\Table\TableExtension.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Grid\Table\TableStyle.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Layer\02ShowLogicLayer\OrderController.cs" />
+    <Compile Include="Layer\03AnticorrosiveLayer\IOrderAnticorrsive.cs" />
+    <Compile Include="Layer\03AnticorrosiveLayer\OrderAnticorrsive.cs" />
+    <Compile Include="Layer\04ServiceInterface\IOrderServiceClient.cs" />
+    <Compile Include="Layer\04ServiceInterface\IProductServiceClient.cs" />
+    <Compile Include="Layer\06Model\OrderItem.cs" />
+    <Compile Include="Layer\06Model\Product.cs" />
+    <Compile Include="Layer\07ViewModel\OrderViewModel.cs" />
+    <Compile Include="MvcPager\Enum.cs" />
+    <Compile Include="MvcPager\PagerBuilder.cs" />
+    <Compile Include="MvcPager\PagerConfig.cs" />
+    <Compile Include="MvcPager\PagerHelper.cs" />
+    <Compile Include="MvcPager\PagerItem.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Layer\readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Layer\01UiLayer\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

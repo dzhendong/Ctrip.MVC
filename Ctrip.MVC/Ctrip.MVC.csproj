@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9504C645-991A-4FA1-A650-D49DF1CE00B1}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ctrip.MVC</RootNamespace>
+    <AssemblyName>Ctrip.MVC</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>12.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\..\调研齐家\Assemblies\Microsoft.Practices\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\..\..\调研齐家\Assemblies\Microsoft.Practices\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\..\..\调研齐家\Assemblies\Microsoft.Practices\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception">
+      <HintPath>..\..\..\调研齐家\Assemblies\Microsoft.Practices\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration">
+      <HintPath>..\..\..\调研齐家\Assemblies\Microsoft.Practices\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Optimization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Assemblies\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc.FixedDisplayModes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\Assemblies\Microsoft.Web.Mvc.FixedDisplayModes.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\Assemblies\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.30506.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.30506.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.30506.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\Assemblies\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <HintPath>..\..\Assemblies\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\AuthConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Areas\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\TestAreaRegistration.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Areas\Admin\Views\Ajax\Ajax2.cshtml" />
+    <Content Include="Content\Webjs\headsearch_a-1.0.1.js" />
+    <Content Include="Content\Webjs\index-1.0.1.js" />
+    <None Include="Areas\Admin\Views\Ajax\Pop5.cshtml" />
+    <Content Include="Content\bootstrap1\bootstrap.css" />
+    <Content Include="Content\bootstrap1\jquery-ui-1.9.2.bootstrap.css" />
+    <Content Include="Content\images\datei.png" />
+    <Content Include="Content\Scripts\jquery-ui-1.9.2.custom.js" />
+    <Content Include="Content\Scripts\jquery-ui-1.9.2.custom.min.js" />
+    <Content Include="Content\css\base.css" />
+    <Content Include="Content\bootstrap1\bootstrap.min.css" />
+    <Content Include="Content\css\default.css" />
+    <Content Include="Content\css\Site.css" />
+    <Content Include="Content\images\transparent.gif" />
+    <Content Include="Content\images\u210.png" />
+    <Content Include="Content\images\u212_line.png" />
+    <Content Include="Content\images\u217_line.png" />
+    <Content Include="Content\images\u271.png" />
+    <Content Include="Content\images\u342.png" />
+    <Content Include="Content\images\u9.png" />
+    <Content Include="Content\bootstrap2\bootstrap-datepicker.js" />
+    <Content Include="Content\bootstrap2\bootstrap.min.js" />
+    <Content Include="Content\Scripts\jquery-migrate-1.2.1.min.js" />
+    <Content Include="Content\Scripts\jquery-1.7.1.min.js" />
+    <Content Include="Content\Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Content\Scripts\jquery.validate.js" />
+    <Content Include="Content\Scripts\jquery.validate.min.js" />
+    <Content Include="Content\Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Areas\Admin\Views\Meta\Route1.cshtml" />
+    <Content Include="Areas\Admin\Views\Handler1\Index2.cshtml" />
+    <Content Include="Areas\Admin\Views\Ajax\Pop6.cshtml" />
+    <Content Include="Areas\Admin\Views\Validate4\SignIn.cshtml" />
+    <Content Include="Areas\Admin\Views\Validate2\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Validate2\View1.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Data.cshtml" />
+    <Content Include="Areas\Admin\Views\Route1\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Meta\Index2.cshtml" />
+    <Content Include="Areas\Admin\Views\Bind3\Index1.cshtml" />
+    <Content Include="Areas\Admin\Views\Bind3\Index2.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Error\PollingMannger.cshtml" />
+    <Content Include="Areas\Test\Views\ViewSwitcher\SwitchView.cshtml" />
+    <Content Include="Areas\Test\Views\ViewSwitcher\SwitchView.Mobile.cshtml" />
+    <Content Include="Areas\Test\Views\Unity\Index.cshtml" />
+    <Content Include="Views\User\new.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ActionResult\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ActionResult\Partial2.cshtml" />
+    <Content Include="Areas\Admin\Views\Ajax\Ajax1.cshtml" />
+    <Content Include="Areas\Admin\Views\Ajax\AjaxData.cshtml" />
+    <Content Include="Areas\Admin\Views\Ajax\Pop1.cshtml" />
+    <Content Include="Areas\Admin\Views\Bind1\Array1.cshtml" />
+    <Content Include="Areas\Admin\Views\Bind1\Bind3.cshtml" />
+    <Content Include="Areas\Admin\Views\Bind1\Bind4.cshtml" />
+    <Content Include="Areas\Admin\Views\Bind1\Binder1.cshtml" />
+    <Content Include="Areas\Admin\Views\Bind1\ChildAction1.cshtml" />
+    <Content Include="Areas\Admin\Views\Bind1\Factory1.cshtml" />
+    <Content Include="Areas\Admin\Views\Bind1\List1.cshtml" />
+    <Content Include="Areas\Admin\Views\Bind1\ModelState.cshtml" />
+    <Content Include="Areas\Admin\Views\Bind1\State1.cshtml" />
+    <Content Include="Areas\Admin\Views\Bind2\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Filter\Exception1.cshtml" />
+    <Content Include="Areas\Admin\Views\Filter\Exception2.cshtml" />
+    <Content Include="Areas\Admin\Views\Meta\Index1.cshtml" />
+    <Content Include="Areas\Admin\Views\Validate1\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Validate1\Index1.cshtml" />
+    <Content Include="Areas\Admin\Views\Validate1\Index2.cshtml" />
+    <Content Include="Areas\Admin\Views\Validate1\Index3.cshtml" />
+    <Content Include="Areas\Admin\Views\Validate1\Message1.cshtml" />
+    <Content Include="Areas\Admin\Views\Validate2\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\Validate3\person.cshtml" />
+    <Content Include="Areas\Admin\Views\View1\Index1.cshtml" />
+    <Content Include="Areas\Admin\Views\View1\View1.cshtml" />
+    <Content Include="Areas\Admin\Views\Web.config" />
+    <Content Include="Areas\Test\Views\Employee\Filterable.cshtml" />
+    <Content Include="Areas\Test\Views\Employee\Index.cshtml" />
+    <Content Include="Areas\Test\Views\Employee\Paged.cshtml" />
+    <Content Include="Areas\Test\Views\Employee\Sortable.cshtml" />
+    <Content Include="Areas\Test\Views\File2\Form1.cshtml" />
+    <Content Include="Areas\Test\Views\File2\Index.cshtml" />
+    <Content Include="Areas\Test\Views\Grid1\Index.cshtml" />
+    <Content Include="Areas\Test\Views\Grid1\Order2.cshtml" />
+    <Content Include="Areas\Test\Views\Grid1\_GridDemo1.cshtml" />
+    <Content Include="Areas\Test\Views\Grid1\_GridDemo2.cshtml" />
+    <Content Include="Areas\Test\Views\Grid1\_GridDemo3.cshtml" />
+    <Content Include="Areas\Test\Views\Grid1\_GridDemo4.cshtml" />
+    <Content Include="Areas\Test\Views\Person\Create.cshtml" />
+    <Content Include="Areas\Test\Views\Person\Delete.cshtml" />
+    <Content Include="Areas\Test\Views\Person\Details.cshtml" />
+    <Content Include="Areas\Test\Views\Person\Edit.cshtml" />
+    <Content Include="Areas\Test\Views\Person\Index.cshtml" />
+    <Content Include="Areas\Test\Views\Shared\_Pager.cshtml" />
+    <Content Include="Areas\Test\Views\Shared\_PagerLink.cshtml" />
+    <Content Include="Areas\Test\Views\Shared\_SmartLink.cshtml" />
+    <Content Include="Areas\Test\Views\Web.config" />
+    <Content Include="Views\Shared\DefaultError.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Error\RangeError.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Boolean.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\CheckBoxList.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DropdownList.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\ListBox.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\RadioButtonList.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\LogOn.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ctrip.Component\Ctrip.Component.csproj">
+      <Project>{b5751de5-242d-42ee-97f2-58134808db9b}</Project>
+      <Name>Ctrip.Component</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ctrip.Controllers\Ctrip.Controllers.csproj">
+      <Project>{0772389e-b4d1-4c4f-b3b3-18a8e3903bcd}</Project>
+      <Name>Ctrip.Controllers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ctrip.Model\Ctrip.Model.csproj">
+      <Project>{94ebecc9-3118-49e5-960d-1233b65042e5}</Project>
+      <Name>Ctrip.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ctrip.Resources\Ctrip.Resources.csproj">
+      <Project>{49f61f0b-d542-4633-8e71-9b3d3bf663e7}</Project>
+      <Name>Ctrip.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ctrip.Test\Ctrip.Test.csproj">
+      <Project>{1319c974-be4c-4af7-8824-6bd2e601b506}</Project>
+      <Name>Ctrip.Test</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Ajax\Pop2.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Ajax\Pop3.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Ajax\Pop4.cshtml" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54698</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1124/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

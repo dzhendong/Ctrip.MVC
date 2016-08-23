@@ -1,0 +1,37 @@
+﻿@using Ctrip.Component
+@using Ctrip.Model
+@model Ctrip.Model.OrderListModelV2
+
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+
+    if (Model == null)
+    {
+        return;
+    }
+
+    var pageNo = 1;
+    pageNo = (Request.QueryString["pageNo"] == null || Request.QueryString["pageNo"] == string.Empty) ? 1 :
+        int.Parse(Request.QueryString["pageNo"].ToString());
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="@Url.Content("~/Content/Scripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>    
+</head>
+<body>
+    <h2>Grid组件Demo演示</h2>
+
+    <div id="Table1">
+        @Html.Table(Model.columns, Model.options, Model.orders)
+    </div>
+    <div id="Pager1" style="margin-bottom: 20px; margin-top: 20px;">
+        @Html.Pager(567, 10, pageNo, "pageNo")
+    </div>
+</body>
+</html>

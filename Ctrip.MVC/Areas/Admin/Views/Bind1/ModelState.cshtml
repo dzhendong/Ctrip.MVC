@@ -1,0 +1,29 @@
+﻿@model ModelStateDictionary
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ModelState</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Key</th>
+            <th>Value</th>
+        </tr>
+        @foreach (var item in Model)
+        { 
+            <tr>
+                <td>@item.Key</td>
+                <td>@item.Value.Value.ConvertTo(typeof(string))</td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

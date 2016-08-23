@@ -1,0 +1,56 @@
+﻿@using Ctrip.Component
+@using Ctrip.Model
+@model Ctrip.Model.OrderListModelV2
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Order2</title>
+</head>
+<body>
+    <div>
+        qqqqqqq
+    </div>
+   <h2 style="margin-left: auto;margin-right:auto;width:800px;">
+    MVC-Grid组件演示Demo</h2>
+   
+<div id="demoContent" style="margin:30px 0px 50px 40px;">
+    <div name="demo" style="height: 30px; width: 800px; margin-bottom: 10px;" onclick="showDemo(1)">@Ajax.ActionLink("示例1-纯文本", "demo1", "Grid1", new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "Grid1", InsertionMode = InsertionMode.Replace })</div>
+    <div id="Grid1" name="Grid" style="display: none; border-bottom: dotted 1px #008000;
+                                                                                                                                margin-bottom: 30px;">
+    </div>
+
+    <div name="demo" style="height: 30px; width: 800px; margin-bottom: 10px;" onclick="showDemo(2)">@Ajax.ActionLink("示例2-支持超链接、图片", "demo2", "Grid1", new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "Grid2", InsertionMode = InsertionMode.Replace })</div>
+    <div id="Grid2" name="Grid" style="display: none; border-bottom: dotted 1px #008000;margin-bottom: 30px;">
+         
+    </div>
+    
+
+    <div name="demo" style="height: 30px; width: 800px; margin-bottom: 10px;" onclick="showDemo(3)">@Ajax.ActionLink("示例3-支持按钮类型", "demo3", "Grid1", new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "Grid3", InsertionMode = InsertionMode.Replace })</div>  
+    <div id="Grid3" name="Grid" style="display: none; border-bottom: dotted 1px #008000;">                                                                                                        </div>
+                                                                                                                               
+
+    <div name="demo" style="height: 30px; width: 800px; margin-bottom: 10px;" onclick="showDemo(4)">@Ajax.ActionLink("示例4-自定义单元格样式", "demo4", "Grid1", new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "Grid4", InsertionMode = InsertionMode.Replace })</div>
+    <div id="Grid4" name="Grid" style="display: none; border-bottom: dotted 1px #008000;
+        margin-bottom: 30px;">
+    </div>
+</div>
+
+    <script src="@Url.Content("~/Content/Scripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>    
+<script type="text/javascript">
+    function showDemo(index) {
+        $("div[name='Grid']").each(function () {
+            $(this).hide();
+        });
+        $("#Grid" + index).show();
+    }
+</script>
+</body>
+</html>

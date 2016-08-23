@@ -1,0 +1,53 @@
+﻿@using Ctrip.Model;
+
+@model Contact
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ModelState Error</title>
+</head>
+<body>
+    @if (string.Compare(Request.HttpMethod, "POST", true) != 0)
+    {
+        using (Html.BeginForm())
+        { 
+        @Html.EditorForModel()
+        @Html.EditorFor(m => m.Address)
+        <input type="submit" value=" 保存" />
+        }
+    }
+    else
+    {
+        <table>
+            <tr>
+                <th>Key</th>
+                <th>Error</th>
+            </tr>
+            <!--验证Model绑定过程中对ModelError的设置-->
+            @foreach (string key in ViewData.ModelState.Keys)
+            {
+                ModelError[] errors = ViewData.ModelState[key].Errors.ToArray();
+                string firstError = errors.Any() ? errors[0].ErrorMessage : "N/A";
+                <tr>
+                    <td rowspan="@errors.Length">@key</td>
+                    <td>@firstError</td>
+                </tr>
+    
+                for (int i = 1; i < errors.Length; i++)
+                { 
+                <tr>
+                    <td>@errors[i] .ErrorMessage</td>
+                </tr>
+                }
+            }
+        </table>
+    }
+</body>
+</html>

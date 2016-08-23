@@ -1,0 +1,50 @@
+﻿@using Ctrip.Test;
+
+@model string[] 
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    @section ScriptZone{
+        <script src='@Url.Content("/Content/bootstrap2/bootstrap.min.js")' type="text/javascript"></script>
+    }
+    @RenderSection("ScriptZone", false)
+</head>
+<body>
+    <h2>
+        Index</h2>
+    @section Header {
+        <div class="view">
+            @foreach (string str in new[] { "Home", "List", "Edit" })
+            {
+                @Html.ActionLink(str, str, null, new { style = "margin: 5px" })
+            }
+        </div>
+    }
+           
+    <div class="view">
+        This is a list of fruit names:
+        <br />
+        @foreach (string name in Model)
+        {
+            <span><b>@name</b></span><br/>
+        }
+    </div>       
+
+    @Html.DisplayMessage("Input")
+    
+    @section Footer {
+        <div class="view">
+            This is the footer
+        </div>
+    }
+    
+</body>
+</html>

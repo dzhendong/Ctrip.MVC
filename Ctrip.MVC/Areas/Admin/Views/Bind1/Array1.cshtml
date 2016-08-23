@@ -1,0 +1,36 @@
+﻿@model string[]
+@{
+    ViewBag.Title = "Names";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>绑定到数组</title>
+</head>
+<body>
+    <h2>Names</h2>
+    @if (Model.Length == 0)
+    {
+        using (Html.BeginForm())
+        {
+            for (int i = 0; i < 3; i++)
+            {
+        <div>
+            <label>@(i + 1):</label>@Html.TextBox("names")</div>
+            }
+        <button type="submit">Submit</button>
+        }
+    }
+    else
+    {
+        foreach (string str in Model)
+        {
+        <p>@str</p>
+        }
+        @Html.ActionLink("Back", "Names");
+    }
+</body>
+</html>

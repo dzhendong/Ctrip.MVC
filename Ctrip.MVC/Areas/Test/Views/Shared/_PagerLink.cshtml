@@ -1,0 +1,40 @@
+﻿@model Ctrip.Model.Employee2
+
+@{
+    //文本编写器
+    var razorWriter = ViewContext.Writer;
+
+    //判断当前链接是否选中
+    if ((bool)ViewData["Inactive"])
+    {
+        //将当前的Text输出 加入了css样式 该样式可以写在样式表、母版页、当前页中
+        razorWriter.Write(string.Format("<span class=\"{0}\">{1}</span>", "pagerButtonDisabled", ViewData["Text"]));
+    }
+    else
+    {
+        //路由参数
+        var routeData = new RouteValueDictionary { { "page", ViewData["PageIndex"].ToString() }, { "pageSize", Model.PageSize } };
+
+        var htmlAttributes = new Dictionary<string, object>();
+        
+        //判断是否为选中状态 添加CSS样式
+        if ((bool)ViewData["Selected"])
+        {
+            htmlAttributes.Add("class", "pagerButtonCurrentPage");
+        }
+        else
+        {
+            htmlAttributes.Add("class", "pagerButton");
+        }
+
+        var linkMarkup = Html.ActionLink(
+                ViewData["Text"].ToString(),                                    // 超链接文本
+                Html.ViewContext.RouteData.Values["action"].ToString(),         // Action
+                Html.ViewContext.RouteData.Values["controller"].ToString(),     // Controller
+                routeData,                                                      // 路由参数
+                htmlAttributes                                                  // HTML属性适用于超链接
+            ).ToHtmlString();
+
+        razorWriter.Write(linkMarkup);
+    }
+}

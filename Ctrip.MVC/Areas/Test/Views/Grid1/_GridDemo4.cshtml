@@ -1,0 +1,35 @@
+﻿@using Ctrip.Component
+@using Ctrip.Model
+@model Ctrip.Model.OrderListModelV2
+@{
+    if (Model == null)
+    {
+        return;
+    }
+
+    var pageNo = 1;
+    pageNo = (Request.QueryString["pageNo"] == null || Request.QueryString["pageNo"] == string.Empty) ? 1 :
+        int.Parse(Request.QueryString["pageNo"].ToString());
+}
+<div id="myGrid4">
+    <div id="Table4">
+        @Html.Table(Model.columns, Model.options, Model.orders)
+    </div>
+<div id="Pager4" style="margin-bottom: 20px; margin-top: 20px;">
+    @Html.AjaxPager(567, 10, pageNo, "pageNo", "myGrid4",
+        new PagerConfig()
+        {
+            CssClass = "myMvcPagerCss",
+            CurrentPagerItemWrapperFormatString = "<span class=\"current_page_item\">{0}</span>",
+            NumericPagerItemWrapperFormatString = "<span class=\"page_number_item\">{0}</span>",
+            PagerItemWrapperFormatString = "<span class=\"page_item\">{0}</span>",
+            NavigationPagerItemWrapperFormatString = "<span class=\"page_nav_item\">{0}</span>",
+            PageIndexBoxWrapperFormatString = "<span class=\"page_input_item\"><span>第</span>{0}<span>页</span></span>",
+            GoToPageSectionWrapperFormatString = "<span class=\"page_goto_item\">{0}</span>",
+            PrevPageText = "<",
+            NextPageText = ">",
+            FirstPageText = "<<",
+            LastPageText = ">>"
+        })
+</div>
+</div>

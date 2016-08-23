@@ -1,0 +1,38 @@
+﻿@model Ctrip.Model.Person
+@{
+    ViewBag.Title = "删除人员";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h2>
+        删除人员</h2>
+    <h3>
+        你确定要删除该人员？</h3>
+    <fieldset>
+        <legend>人员信息</legend>
+        <div class="display-label">
+            编号</div>
+        <div class="display-field">@Model.ID</div>
+        <div class="display-label">
+            姓名</div>
+        <div class="display-field">@Model.Name</div>
+        <div class="display-label">
+            年龄</div>
+        <div class="display-field">@Model.Age</div>
+    </fieldset>
+    @using (Html.BeginForm())
+    {
+        <p>
+            <input type="submit" value="删除" />
+            |
+            @Html.ActionLink("返回列表", "Index")
+        </p>
+    }
+</body>
+</html>

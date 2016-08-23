@@ -1,0 +1,167 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = null; ;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+    <script src="@Url.Content("~/Content/Scripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
+</head>
+<body>
+    <h2>
+        PartialView Demo</h2>
+    <div>
+        Please write your name here
+        <input type='text' id='txtName' />
+        <br />
+        <input type='button' value='Partial' id='btnOK1' />
+        <input type='button' value='Json' id='btnOK2' />
+        <input type='button' value='Content' id='btnOK3' />
+        <input type='button' value='EmptyResult' id='btnOK4' />
+        <input type='button' value='JavaScript1' id='btnOK5' />
+        <input type='button' value='RedirectResult' id='btnOK6' />
+        <input type="button" value="测试" onclick="test();" />
+    </div>
+@using (Html.BeginForm("JavaScript2", "ActionResult", null, FormMethod.Post))
+{
+    <button type="submit">查询</button>
+    <button type="button">新增</button>
+}
+    <br />
+    <div id='content'>
+    </div>
+    <script type="text/javascript">       
+
+        function test() {
+            $.ajax({
+                url: '@Url.Action("Json1")',
+                type: "POST",
+                success: function (result) {
+                    $("#lblMsg").text(result.msg);
+                }
+            });
+        }
+
+        $(function () {
+
+            $('#btnOK1').click(function () {
+                var data = { Name: $('#txtName').val() };
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("Partial2", "ActionResult")',
+                    data: data,
+                    datatype: "html",                  
+                    success: function (data) {
+                        $('#content').html(data);                        
+                    },
+                    error: function () {
+                        alert("处理失败!");
+                    }
+                });
+            });
+
+            $('#btnOK2').click(function () {
+                //Json1
+                var data1 = { ID: 1, Name: "AA" }
+
+                //Json2
+                var data2 = {};
+                data2["users[0].ID"] = 1;
+                data2["users[0].Name"] = "AA";
+                data2["users[1].ID"] = 2;
+                data2["users[1].Name"] = "BB";
+
+                //json3
+                var data3 = [{ ID: 1, Name: 'AA', Role: {} }, { Id: 2, Name: 'BB', Role: {} }]                 
+                var data31 = JSON.stringify(data3);                
+
+                var data4 = "[{ ID: 1, Name: 'AA', Role: {} }, { Id: 2, Name: 'BB', Role: {} }]"
+
+                $.ajax({
+                    type: "POST",                  
+                    url: '@Url.Action("Json31", "ActionResult")',
+                    dataType: "json",
+                    contentType: "application/json;charset=utf-8",
+                    data: data31,
+                    cache: false,                    
+                    success: function (data) {
+                        $("#content").html(data.Name);
+                    },
+                    error: function () {
+                        alert("处理失败!");
+                    }
+                });
+            });
+
+            $('#btnOK3').click(function () {              
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("Content1", "ActionResult")',
+                    dataType: "text",
+                    success: function (data) {
+                        $("#content").html(data);
+                    },
+                    error: function () {
+                        alert("处理失败!");
+                    }
+                });
+            });
+
+            $('#btnOK4').click(function () {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("EmptyResult", "ActionResult")',
+                    dataType: "text",
+                    success: function (data) {
+                        alert(data);
+                    },
+                    error: function () {
+                        alert("处理失败!");
+                    }
+                });
+            });
+
+            $('#btnOK5').click(function () {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("JavaScript1", "ActionResult")',
+                    dataType: "script",
+                    success: function (data) {
+                        data;
+                    },
+                    error: function () {
+                        alert("处理失败!");
+                    }
+                });
+            });
+
+            $('#btnOK6').click(function () {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("RedirectResult", "ActionResult")',
+                    dataType: "script",
+                    success: function (data) {
+                        data;
+                    },
+                    error: function () {
+                        alert("处理失败!");
+                    }
+                });
+            });
+        });
+
+    </script>
+    @Html.Action("ChildAction");
+
+    <h2 id="lblMsg"></h2>
+
+    <ul id="menu">
+	
+	<li>@Html.ActionLink("Admin", "Index", "Home", new { area = "Admin" }, null)</li>
+	
+</ul>
+</body>
+</html>

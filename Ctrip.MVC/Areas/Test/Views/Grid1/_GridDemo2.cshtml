@@ -1,0 +1,41 @@
+﻿@using Ctrip.Component
+@using Ctrip.Model
+@model Ctrip.Model.OrderListModelV2
+@{
+    if (Model == null)
+    {
+        return;
+    }
+
+    var pageNo = 1;
+    pageNo = (Request.QueryString["pageNo"] == null || Request.QueryString["pageNo"] == string.Empty) ? 1 :
+        int.Parse(Request.QueryString["pageNo"].ToString());
+}
+
+<script type="text/javascript">
+    function AjaxBegin() {
+        $("#loading").show();
+        $("#loading").html("数据加载中，请稍候...");
+    }
+    function AjaxComplete(xhr) {
+        if (xhr.status == "200") {
+            $("#loading").hide();
+        }
+    }
+    function AjaxFailure(xhr) {
+        $("#loading").show();
+        $("#loading").html(xhr.statusText);
+    }
+</script>
+
+<div id="myGrid2">
+    <div id="Table2">
+        @Html.Table(Model.columns, Model.options, Model.orders)
+    </div>
+    <div id="loading" style="display: none; padding: 5px; background: orange;">
+        数据加载中，请稍候...
+    </div>
+    <div id="Pager3" style="margin-bottom: 20px; margin-top: 20px;">
+        @Html.AjaxPager(567, 10, pageNo, "pageNo", "myGrid2")
+    </div>
+</div>

@@ -1,0 +1,52 @@
+﻿@using System.Collections;
+@using System.Web.Optimization;
+@using Ctrip.Test;
+
+@model string[]
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    @Scripts.Render("/Content/Webjs/index")    
+</head>
+<body>
+    <h2>Index</h2>
+    @section Header {
+        <div class="view">
+            @foreach (string str in new[] { "Home", "List", "Edit" })
+            {
+                @Html.ActionLink(str, str, null, new { style = "margin: 5px" })
+            }
+        </div>
+    }
+
+    <div class="view">
+        This is a list of fruit names:
+        <br />
+        @foreach (string name in Model)
+        {
+            <span><b>@name</b></span><br />
+        }
+    </div>
+
+    @Html.DisplayMessage("Input")
+
+    @section Footer {
+        <div class="view">
+            This is the footer
+        </div>
+    }
+    <script type="text/javascript">
+        var x = a();
+        alert(x)
+
+    </script>
+</body>
+</html>

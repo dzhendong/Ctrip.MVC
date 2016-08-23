@@ -1,0 +1,36 @@
+﻿@model ActionDescriptor
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>针对参数的ModelBinder</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Pararneter</th>
+            <th>ModelBinder</th>
+        </tr>
+        @foreach (var parameter in Model.GetParameters())
+        {
+            string binderType = "N/A";
+            IModelBinder binder = parameter.BindingInfo.Binder ??
+        ModelBinders.Binders.GetBinder(parameter.ParameterType);
+            if (null != binder)
+            {
+                binderType = binder.GetType().Name;
+            }
+    
+            <tr>
+                <td>@parameter.ParameterName</td>
+                <td>@binderType</td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

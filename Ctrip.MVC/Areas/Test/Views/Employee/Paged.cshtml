@@ -1,0 +1,73 @@
+﻿@model Ctrip.Model.Employee2
+@{
+    ViewBag.Title = "Paged";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Paged</title>    
+</head>
+<body>
+    <h2>
+        分页列表</h2>
+    <p>
+        <i>总共有 @Model.TotalRecordCount 条记录，每页显示 @Model.PageSize 条</i> <i>你正在查看的是 @Model.PageCount
+            页的第 @Model.CurrentPageIndex 页</i>
+    </p>
+    <table border="1" width="100%" style="text-align: center; border-collapse: collapse">
+        <tr>
+            <th>
+                编号
+            </th>
+            <th>
+                姓名
+            </th>
+            <th>
+                性别
+            </th>
+            <th>
+                生日
+            </th>
+            <th>
+                是否婚配
+            </th>
+        </tr>
+        @foreach (var item in Model.Employees)
+        {
+        
+            <tr>
+                <td>@item.EmployeeNO
+                </td>
+                <td>@item.EmployName
+                </td>
+                <td>@item.Sex
+                </td>
+                <td>@item.Birthday
+                </td>
+                <td>
+                    @if (item.Marital == 1)
+                    {
+                        @:@("是")
+                                                                                                         }
+                    @if (item.Marital != 1)
+                    {
+                        @:@("否")
+                                                                                                          }
+                </td>
+            </tr>     
+        }
+        <tr>
+            <td colspan="5">
+                &nbsp
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5">
+                @Html.Partial("_Pager", Model)
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

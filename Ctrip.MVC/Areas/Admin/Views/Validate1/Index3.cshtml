@@ -1,0 +1,25 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ValidationSummary</title>
+    <style type="text/css">
+        .validation-summary-errors {
+            color: Red;
+        }
+
+            .validation-summary-errors span {
+                font-weight: bold;
+            }
+    </style>
+</head>
+<body>
+    @Html.ValidationSummary(false, "excludePropertyErrors: false")
+    @Html.ValidationSummary(true, "excludePropertyErrors: true")
+</body>
+</html>

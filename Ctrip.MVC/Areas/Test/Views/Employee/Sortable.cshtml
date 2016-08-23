@@ -1,0 +1,58 @@
+﻿@model Ctrip.Model.Employee1
+@{
+    ViewBag.Title = "Sortable";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Sortable</title>
+</head>
+<body>
+    <h2>
+        排序列表</h2>
+    <table border="1" width="100%" style="text-align: center; border-collapse: collapse">
+        <tr>
+            <th>@Html.Partial("_SmartLink", Model, new ViewDataDictionary { { "ColumnName", "EmployeeNO" }, { "DisplayName", "编号" } })
+            </th>
+            <th>@Html.Partial("_SmartLink", Model, new ViewDataDictionary { { "ColumnName", "EmployName" }, { "DisplayName", "姓名" } })
+            </th>
+            <th>
+                性别
+            </th>
+            <th>
+                生日
+            </th>
+            <th>
+                是否婚配
+            </th>
+        </tr>
+        @foreach (var item in Model.Employees)
+        { 
+
+            <tr>
+                <td>@item.EmployeeNO
+                </td>
+                <td>@item.EmployName
+                </td>
+                <td>@item.Sex
+                </td>
+                <td>@string.Format("{0:yyyy年MM月dd日}", item.Birthday)
+                </td>
+                <td>
+                  @if (item.Marital == 1)
+                    {
+                        @:@("是")
+                             }
+                    @if (item.Marital != 1)
+                    {
+                        @:@("否")
+                              }                                               
+                </td>
+            </tr> 
+
+        }
+    </table>
+</body>
+</html>

@@ -1,0 +1,38 @@
+﻿@model NameValueCollectionValueProvider
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>指定前缀的Key</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th colspan="2">foo</th>
+        </tr>
+        @foreach (var item in Model.GetKeysFromPrefix("foo"))
+        {
+            <tr>
+                <td>@item.Key</td>
+                <td>@item.Value</td>
+            </tr>
+        }
+        <tr>
+            <th colspan="2">foo.Address</th>
+        </tr>
+        @foreach (var item1 in Model.GetKeysFromPrefix("foo.Address"))
+        {
+            <tr>
+                <td>@item1.Key</td>
+                <td>@item1.Value</td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

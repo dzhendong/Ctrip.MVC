@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+      <script src="@Url.Content("~/Content/Scripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
+    <title>Create</title>
+     <script type="text/javascript">
+         function a() {
+             $.ajax({
+                 url: '/Ajax/Ajax21',
+                 type: 'POST',
+                 data: {
+                     Name: 'Name',
+                     Name1: 'Name1'
+                 },
+                 success: function (data) {
+                    alert('a')
+                 }
+             });
+         }
+         
+    </script>  
+    </head>
+<body>
+   
+<h2>Ajax2</h2>
+<input value="Click Me"  onclick="a();"/>
+        </body>
+</html>

@@ -1,0 +1,310 @@
+﻿html, body {
+    height: 100%;    
+}
+
+p {
+	margin: 0px;
+}
+
+#u340 {
+position: absolute;
+left: 965px;
+top: 1360px;
+width: 30px;
+height: 30px;
+font-family: 'Heiti SC Light', 'Heiti SC';
+font-weight: 200;
+}
+#u342 {
+position: absolute;
+left: 0px;
+overflow: auto;
+overflow-y: scroll;
+position: fixed;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+/*top: 130px;
+    width: 99%;
+height: 99%;
+    */
+}
+#u342_img {
+position: absolute;
+left: 0px;
+top: 0px;
+width: 99%;
+height: 99%;
+}
+#u343 {
+position: absolute;
+left: 2px;
+visibility: hidden;
+word-wrap: break-word;
+/*top: 902px;
+width: 100%;*/
+}
+#u344 {
+position: absolute;
+left: 286px;
+top: 240px;
+width: 364px;
+height: 200px;
+}
+#u344_img {
+position: absolute;
+left: 0px;
+top: 0px;
+width: 364px;
+height: 200px;
+}
+#u345 {
+position: absolute;
+left: 2px;
+top: 92px;
+width: 360px;
+visibility: hidden;
+word-wrap: break-word;
+}
+#u346 {
+position: absolute;
+left: 286px;
+top: 390px;
+width: 364px;
+height: 10px;
+}
+#u346_start {
+position: absolute;
+left: 0px;
+top: -5px;
+width: 18px;
+height: 20px;
+}
+#u346_end {
+position: absolute;
+left: 347px;
+top: -5px;
+width: 18px;
+height: 20px;
+}
+#u346_line {
+position: absolute;
+left: 0px;
+top: 5px;
+width: 364px;
+height: 1px;
+}
+#u347 {
+position: absolute;
+left: 297px;
+top: 409px;
+width: 150px;
+height: 19px;
+font-family: 'Heiti SC Light', 'Heiti SC';
+font-weight: 200;
+font-size: 16px;
+color: #656565;
+text-align: center;
+}
+#u347_img {
+position: absolute;
+left: 0px;
+top: 0px;
+width: 150px;
+height: 19px;
+}
+#u348 {
+position: absolute;
+left: 0px;
+top: 0px;
+width: 150px;
+word-wrap: break-word;
+}
+#u349 {
+position: absolute;
+left: 398px;
+top: 297px;
+width: 222px;
+height: 56px;
+font-family: 'Heiti SC Light', 'Heiti SC';
+font-weight: 200;
+color: #656565;
+line-height: 28px;
+}
+#u349_img {
+position: absolute;
+left: 0px;
+top: 0px;
+width: 222px;
+height: 56px;
+}
+#u350 {
+position: absolute;
+left: 0px;
+top: 0px;
+width: 222px;
+word-wrap: break-word;
+}
+#u351 {
+position: absolute;
+left: 318px;
+top: 292px;
+width: 59px;
+height: 59px;
+font-family: 'Heiti SC Light', 'Heiti SC';
+font-weight: 200;
+font-size: 36px;
+color: #999999;
+}
+#u351_img {
+position: absolute;
+left: 0px;
+top: 0px;
+width: 59px;
+height: 59px;
+}
+#u352 {
+position: absolute;
+left: 2px;
+top: 8px;
+width: 55px;
+word-wrap: break-word;
+}
+#u353 {
+position: absolute;
+left: 463px;
+top: 396px;
+width: 10px;
+height: 42px;
+}
+#u353_start {
+position: absolute;
+left: -5px;
+top: 0px;
+width: 20px;
+height: 18px;
+}
+#u353_end {
+position: absolute;
+left: -5px;
+top: 25px;
+width: 20px;
+height: 18px;
+}
+#u353_line {
+position: absolute;
+left: 5px;
+top: 0px;
+width: 1px;
+height: 42px;
+}
+#u354 {
+position: absolute;
+left: 479px;
+top: 409px;
+width: 150px;
+height: 19px;
+font-family: 'Heiti SC Light', 'Heiti SC';
+font-weight: 200;
+font-size: 16px;
+color: #656565;
+text-align: center;
+}
+#u354_img {
+position: absolute;
+left: 0px;
+top: 0px;
+width: 150px;
+height: 19px;
+}
+#u355 {
+position: absolute;
+left: 0px;
+top: 0px;
+width: 150px;
+word-wrap: break-word;
+}
+
+
+#u182 {
+position: absolute;
+left: 385px;
+top: 409px;
+width: 150px;
+height: 19px;
+font-family: 'Heiti SC Light', 'Heiti SC';
+font-weight: 200;
+font-size: 16px;
+color: #656565;
+text-align: center;
+}
+
+
+#u210 {
+position: absolute;
+left: 320px;
+top: 297px;
+width: 311px;
+height: 56px;
+font-family: 'Heiti SC Light', 'Heiti SC';
+font-weight: 200;
+color: #656565;
+text-align:center;
+line-height: 28px;
+}
+#u210_img {
+position: absolute;
+left: 0px;
+top: 0px;
+width: 311px;
+height: 56px;
+}
+#u211 {
+position: absolute;
+left: 0px;
+top: 0px;
+width: 311px;
+word-wrap: break-word;
+}
+
+.ax_shape {
+font-family: 'Arial Normal', 'Arial';
+font-weight: 400;
+font-style: normal;
+font-size: 13px;
+color: #333333;
+text-align: center;
+line-height: normal;
+}
+.ax_horizontal_line {
+font-family: 'Arial Normal', 'Arial';
+font-weight: 400;
+font-style: normal;
+font-size: 13px;
+color: #333333;
+text-align: center;
+line-height: normal;
+}
+.ax_paragraph {
+font-family: 'Arial Normal', 'Arial';
+font-weight: 400;
+font-style: normal;
+font-size: 13px;
+color: #333333;
+text-align: left;
+line-height: normal;
+}
+.ax_vertical_line {
+font-family: 'Arial Normal', 'Arial';
+font-weight: 400;
+font-style: normal;
+font-size: 13px;
+color: #333333;
+text-align: center;
+line-height: normal;
+}
+#base {
+position: absolute;
+z-index: 0;
+}

@@ -1,0 +1,175 @@
+﻿@model Ctrip.Model.User
+@{
+    ViewBag.Title = "用户主页";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+      <style type="text/css">
+
+        .v-warp .v-box .v-right-list dt{
+	width:100%; height:32px; font-size:18px; color:#F30;
+	}
+.v-warp .v-box .v-right-list dt a{
+	font-size:18px; color:#F30;
+	}
+.v-warp .v-box .v-right-list dd{
+	width:140px; height:30px; line-height:30px; float:left; overflow:hidden; cursor: default; color:#999;
+	}
+.v-warp .v-box .v-right-list dd a{
+	color:#06C; display:block;
+	}
+.v-warp .v-box .v-right-list dd a:hover{
+	color:#F30; text-decoration:underline;
+	}
+.v-warp #vdates {
+	margin-top:30px; font-family:Georgia, "Times New Roman", Times, serif; border-bottom:solid #ddd 3px;
+	}
+.v-warp #vdates th{
+	background:#F60; height:40px; color:#fff; border:#f60 solid 1px; font-size:16px; font-weight:100; cursor:pointer;
+	}
+.v-warp #vdates th.v-lt{
+	padding-right:30px;
+	}
+.v-warp #vdates th.v-gt{
+	padding-left:30px;
+	}
+.v-warp #vdates th.v-lt:hover,.v-warp #vdates th.v-gt:hover{
+	background:#f30;
+	}
+.v-warp #vdates td{
+	background:#fff; margin:1px; border:1px solid #ddd; width:138px; height:30px; text-align:center; line-height:30px;
+	font-size:14px;
+	}
+.v-warp #vdates td a{
+	display:block;
+	}
+.v-warp #vdates td a:hover{
+	text-decoration:none;
+	}
+.v-warp #vdates td.l{
+	background:url(../Images/datei.png) no-repeat right top;
+	}
+.v-warp #vdates td:hover{
+	background: #FFC;
+	}
+.v-warp #vdates td.l:hover{
+	background: #FFC url(../Images/datei.png) no-repeat right top;
+	}
+.v-warp #vdates td.cur{
+		background: #FFC;
+	}
+.v-warp .v-days{
+	width:100%;
+	}
+.v-warp .v-days li{
+	width:110px; height:24px; border: solid 1px #f60; float:left; margin-right:4px; margin-top:8px; padding:0; line-height:24px; text-align:center;
+	}
+.v-warp .v-days li a{
+	display:block; line-height:24px;  color:#f30;
+	}
+.v-warp .v-days li a:hover{
+	background:#f60; color:#fff; text-decoration:none;
+	}
+.v-cname{
+	width: auto; padding:10px; background:#fff; overflow-y:hidden; margin-bottom:0px; border-top:#EA5415 solid 3px; border-bottom:#ddd solid 3px; 
+	}
+.v-cname .v-logo{
+	width:42px; height:42px; padding:3px; background:#fff; border:#ddd 1px solid; float:left; margin-right:3px; 
+	}
+.v-cname .v-thename{
+	float:left; margin-left:10px; color:#666; line-height:24px;
+	}
+.v-cname .v-thename small{
+	font-size:12px; line-height:20px;
+	}
+
+.v-warp .v-box dl.v-name-dl{
+	width:100%; overflow-x:hidden; overflow-y:auto;
+	}
+
+    </style>
+</head>
+<body>
+    <h2>
+        用户主页
+    </h2>
+
+    @helper StripHtml(string input)
+    {
+        @System.Text.RegularExpressions.Regex.Replace(input, "<.*?>", string.Empty)
+    }
+    <div>
+        HTML Content: @HttpUtility.HtmlDecode("<div><p>Test</p><br/></div>")
+        <br />
+        Plain Content:@StripHtml("<div><p>Test</p></div>")
+        <br />
+    </div>
+    <div>
+        @Html.ActionLink("用户登录", "LogOn")
+
+        @Html.ActionLink("新页面", "New", null, new { target = "_blank" })
+    </div>
+
+    <table class="tbl_hank" id="vdates" style="width: 956px;">
+        <thead>
+            <tr>
+                <th align="right" class="v-lt v-F" colspan="2"><a class="left-btn" data-href="/User/Calendar?Date=2015-05-01&amp;areaType=0&amp;Companyid=0">&lt;&lt;</a></th>
+                <th colspan="3">2015年06月</th>
+                <th align="left" class="v-gt v-F" colspan="2"><a class="right-btn" data-href="/User/Calendar?Date=2015-07-01&amp;areaType=0&amp;Companyid=0">&gt;&gt;</a></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class=" cur"><a href="javascrpt:void(0);">1</a></td>
+                <td class=" "><a href="javascrpt:void(0);">2</a></td>
+                <td class=" "><a href="javascrpt:void(0);">3</a></td>
+                <td class=" "><a href="javascrpt:void(0);">4</a></td>
+                <td class=" "><a href="javascrpt:void(0);">5</a></td>
+                <td class=" "><a href="javascrpt:void(0);">6</a></td>
+                <td class=" "><a href="javascrpt:void(0);">7</a></td>
+            </tr>
+            <tr>
+                <td class=" "><a href="javascrpt:void(0);">8</a></td>
+                <td class=" "><a href="javascrpt:void(0);">9</a></td>
+                <td class=" "><a href="javascrpt:void(0);">10</a></td>
+                <td class=" "><a href="javascrpt:void(0);">11</a></td>
+                <td class=" "><a href="javascrpt:void(0);">12</a></td>
+                <td class=" "><a href="javascrpt:void(0);">13</a></td>
+                <td class=" "><a href="javascrpt:void(0);">14</a></td>
+            </tr>
+            <tr>
+                <td class=" "><a href="javascrpt:void(0);">15</a></td>
+                <td class=" "><a href="javascrpt:void(0);">16</a></td>
+                <td class=" "><a href="javascrpt:void(0);">17</a></td>
+                <td class=" "><a href="javascrpt:void(0);">18</a></td>
+                <td class=" "><a href="javascrpt:void(0);">19</a></td>
+                <td class=" "><a href="javascrpt:void(0);">20</a></td>
+                <td class=" "><a href="javascrpt:void(0);">21</a></td>
+            </tr>
+            <tr>
+                <td class=" "><a href="javascrpt:void(0);">22</a></td>
+                <td class=" "><a href="javascrpt:void(0);">23</a></td>
+                <td class=" "><a href="javascrpt:void(0);">24</a></td>
+                <td class=" "><a href="javascrpt:void(0);">25</a></td>
+                <td class=" "><a href="javascrpt:void(0);">26</a></td>
+                <td class=" "><a href="javascrpt:void(0);">27</a></td>
+                <td class=" "><a href="javascrpt:void(0);">28</a></td>
+            </tr>
+            <tr>
+                <td class=" "><a href="javascrpt:void(0);">29</a></td>
+                <td class=" "><a href="javascrpt:void(0);">30</a></td>
+                <td class="lasted"><a href="javascrpt:void(0);">1</a></td>
+                <td class="lasted"><a href="javascrpt:void(0);">2</a></td>
+                <td class="lasted"><a href="javascrpt:void(0);">3</a></td>
+                <td class="lasted"><a href="javascrpt:void(0);">4</a></td>
+                <td class="lasted"><a href="javascrpt:void(0);">5</a></td>
+            </tr>
+            <tr></tr>
+        </tbody>
+    </table>
+</body>
+</html>

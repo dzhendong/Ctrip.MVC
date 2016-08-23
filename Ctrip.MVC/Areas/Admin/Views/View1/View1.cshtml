@@ -1,0 +1,25 @@
+﻿@using Ctrip.Model
+
+@model Contact
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width；charset=utf-8" />
+    <title>View1</title>
+</head>
+<body>
+    <table border='1' cellspacing='0' cellpadding='0'>
+        <tr>
+            <td style='font-size: 12px;height:20px;width:200px;'>查询周期</td>
+            <td style='font-size: 12px;height:20px;width:200px;'>@Model.Name</td>
+            <td style='font-size: 12px;height:20px;width:200px;'>@Model.PhoneNo</td>
+            <td style='font-size: 12px;height:20px;width:200px;'>@Model.EmailAddress</td>
+        </tr>
+    </table>
+</body>
+</html>

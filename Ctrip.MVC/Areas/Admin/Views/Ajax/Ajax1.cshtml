@@ -1,0 +1,72 @@
+﻿@using Ctrip.Model
+
+@model string
+
+@{
+    ViewBag.Title = "GetPeople";
+    AjaxOptions ajaxOpts = new AjaxOptions
+    {
+        UpdateTargetId = "tableBody",
+        Url = Url.Action("AjaxData"),
+        LoadingElementId = "loading",
+        LoadingElementDuration = 1000,
+        Confirm = "Do you wish to request new data?",
+        OnBegin = "OnBegin",
+        OnFailure = "OnFailure",
+        OnSuccess = "OnSuccess",
+        OnComplete = "OnComplete"
+    };
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+    <script src="@Url.Content("~/Content/Scripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>  
+    <script type="text/javascript">
+        function OnBegin() {
+            alert("This is the OnBegin Callback");
+        }
+        function OnSuccess(data) {
+            alert("This is the OnSuccessCallback: " + data);
+        }
+        function OnFailure(request, error) {
+            alert("This is the OnFailure Callback:" + error);
+        }
+        function OnComplete(request, status) {
+            alert("This is the OnComplete Callback: " + status);
+        }
+    </script>  
+</head>
+<body>
+    <h2>
+        Ajax.BeginForm
+    </h2>
+    <div id="loading" class="load" style="display:none">
+        <p>Loading Data...</p>
+    </div>
+    <table>
+        <thead><tr><th>First</th><th>Last</th><th>Role</th></tr></thead>
+        <tbody id="tableBody">
+            @Html.Action("AjaxData", new { selectedRole = Model })
+        </tbody>
+    </table>
+    @using (Ajax.BeginForm("AjaxData", ajaxOpts))
+    {
+        <div>
+            @Html.DropDownList("selectedRole", new SelectList(
+            new[] { "All" }.Concat(Enum.GetNames(typeof(Role)))))
+            <button type="submit">Submit</button>
+        </div>
+    }
+    <div>
+        @foreach (string role in Enum.GetNames(typeof(Role)))
+        {
+            @Ajax.ActionLink(role, "AjaxData", new { selectedRole = role },
+            new AjaxOptions { UpdateTargetId = "tableBody" }) 
+    }
+    </div>
+</body>
+</html>

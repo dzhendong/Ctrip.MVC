@@ -1,0 +1,28 @@
+﻿@using Ctrip.Model;
+
+@model Employee6
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>编辑个人信息</title>
+    <style type="text/css">
+        .field-validation-error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm())
+    { 
+        @Html.EditorForModel()
+        <input type="submit" value=" 保存" />
+    }
+</body>
+</html>

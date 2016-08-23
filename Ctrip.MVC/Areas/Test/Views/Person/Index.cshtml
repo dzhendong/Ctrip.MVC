@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Ctrip.Model.Person>
+@{
+    ViewBag.Title = "人员列表";
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+   <h2>
+    人员列表</h2>
+<table>
+    <tr>
+        <th>
+            姓名
+        </th>
+        <th>
+            年龄
+        </th>
+        <th>
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.Name
+            </td>
+            <td>
+                @item.Age
+            </td>
+            <td>                
+                @Html.ActionLink("修改", "Edit", "Person",new { p1 = item.ID, p2 = item.Name },null) 
+                @Html.ActionLink("明细", "Details", new { id = item.ID }) |
+                @Html.ActionLink("删除", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+</table>
+<p>
+    @Html.ActionLink("创建人员", "Create")
+</p>
+</body>
+</html>

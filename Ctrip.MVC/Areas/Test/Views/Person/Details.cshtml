@@ -1,0 +1,29 @@
+﻿@model Ctrip.Model.Person
+@{
+    ViewBag.Title = "人员明细";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <h2>
+        人员明细</h2>
+    <fieldset>
+        <legend>人员信息</legend>
+        <div class="display-label">
+            姓名:</div>
+        <div class="display-field">@Model.Name</div>
+        <div class="display-label">
+            年龄：</div>
+        <div class="display-field">@Model.Age</div>
+    </fieldset>
+    <p>
+        @Html.ActionLink("编辑", "Edit", new { id = Model.ID}) |
+        @Html.ActionLink("返回列表", "Index")
+    </p>
+</body>
+</html>

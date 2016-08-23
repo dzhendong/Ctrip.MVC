@@ -1,0 +1,38 @@
+﻿@model Ctrip.Model.Employee2
+<div>
+    @{
+        // 创建上一页链接
+        Html.RenderPartial("_PagerLink", Model,
+            new ViewDataDictionary { 
+                { "Text", "上一页" }, 
+                { "PageIndex", Model.CurrentPageIndex - 1 }, 
+                { "Selected", false }, 
+                { "Inactive", Model.CurrentPageIndex == 1 }
+            });
+
+        //获取第一页和最后一页
+        var startPageIndex = Math.Max(1, Model.CurrentPageIndex - Model.PageCount / 2);
+        var endPageIndex = Math.Min(Model.PageCount, Model.CurrentPageIndex + Model.PageCount / 2);
+        
+        // 添加中间的页码 如： 上一页 1 2 3 4 下一页
+        for (var i = startPageIndex; i <= endPageIndex; i++)
+        {
+            Html.RenderPartial("_PagerLink", Model,
+                new ViewDataDictionary { 
+                    { "Text", i }, 
+                    { "PageIndex", i }, 
+                    { "Selected", i == Model.CurrentPageIndex }, 
+                    { "Inactive", i == Model.CurrentPageIndex } 
+                });
+        }
+
+        // 创建下一页
+        Html.RenderPartial("_PagerLink", Model,
+            new ViewDataDictionary { 
+                { "Text", "下一页" }, 
+                { "PageIndex", Model.CurrentPageIndex + 1 }, 
+                { "Selected", false }, 
+                { "Inactive", Model.CurrentPageIndex == Model.PageCount }
+            });
+    }
+</div>

@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{94EBECC9-3118-49E5-960D-1233B65042E5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ctrip.Model</RootNamespace>
+    <AssemblyName>Ctrip.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\Assemblies\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Area\Admin1\Login.cs" />
+    <Compile Include="Business\IUserBusiness.cs" />
+    <Compile Include="Area\Admin1\Roles.cs" />
+    <Compile Include="Area\Admin1\User.cs" />
+    <Compile Include="Business\UserBusiness.cs" />
+    <Compile Include="Area\Admin\PartialM2.cs" />
+    <Compile Include="Area\Admin\Person1.cs" />
+    <Compile Include="Validate\04.cs" />
+    <Compile Include="Validate\03.cs" />
+    <Compile Include="Validate\01.cs" />
+    <Compile Include="_Model\01Meta1\ExtendedDataAnnotationsProvider.cs" />
+    <Compile Include="_Model\01Meta1\FieldTemplateMetadata.cs" />
+    <Compile Include="_Model\01Meta2\02.ListProviders.cs" />
+    <Compile Include="_Model\01Meta3\01.CodeDescription.cs" />
+    <Compile Include="_Model\01Meta2\01.ListAttribute.cs" />
+    <Compile Include="_Model\01Meta3\02.ListControlUtil.cs" />
+    <Compile Include="_Model\01Meta2\04.ListExtensions.cs" />
+    <Compile Include="_Model\01Meta2\02.IListProvider.cs" />
+    <Compile Include="_Model\01Meta1\DisplayTextAttribute.cs" />
+    <Compile Include="_Model\01Meta1\ModelMetadataInfo.cs" />
+    <Compile Include="_Model\02Bind1\CustomValueProviderFactory.cs" />
+    <Compile Include="_Model\02Bind1\HttpHeaderValueProviderFactory.cs" />
+    <Compile Include="_Model\02Bind2\AddressBinder.cs" />
+    <Compile Include="_Model\02Bind1\CountryValueProvider.cs" />
+    <Compile Include="_Model\02Bind1\DictionaryValueProviderExtensions.cs" />
+    <Compile Include="_Model\02Bind1\JsonArrayValueProviderFactory.cs" />
+    <Compile Include="_Model\02Bind2\DefaultModelBinder1.cs" />
+    <Compile Include="_Model\02Bind2\JsonBinder.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Area\Test\Employee.cs" />
+    <Compile Include="Area\Test\OrderModelV2.cs" />
+    <Compile Include="Area\Test\Person.cs" />
+    <Compile Include="_Model\02Bind2\MyModelBinderProvider.cs" />
+    <Compile Include="_Model\03Validate1\AlwaysFailsAttribute.cs" />
+    <Compile Include="_Model\03Validate2\AgeRangeAttribute.cs" />
+    <Compile Include="_Model\03Validate2\Appointment.cs" />
+    <Compile Include="_Model\03Validate1\CompareValuesAttribute.cs" />
+    <Compile Include="_Model\03Validate2\IntegerAttribute.cs" />
+    <Compile Include="_Model\03Validate1\MustBeTrueAttribute.cs" />
+    <Compile Include="_Model\03Validate1\NoJoeOnMondaysAttribute.cs" />
+    <Compile Include="_Model\03Validate2\RangeIfAttribute.cs" />
+    <Compile Include="_Model\03Validate2\ValidatePasswordLength.cs" />
+    <Compile Include="_Model\03Validate3\ParameterValidationModelBinder.cs" />
+    <Compile Include="_Model\03Validate3\PararneterValidationActionlnvoker.cs" />
+    <Compile Include="_Model\03Validate4\02.RangeValidatorAttribut.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_Model\03Validate4\03.RuleBasedController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_Model\03Validate4\04.RuleBasedValidatorProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_Model\03Validate4\00.ValidationRuleAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_Model\03Validate4\01.ValidatorAttribute.cs" />
+    <Compile Include="_Model\04Extended1\08.RangeAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_Model\04Extended1\03.ValidationRule2Attribute.cs" />
+    <Compile Include="_Model\04Extended1\01.ValidatorContex.cs" />
+    <Compile Include="_Model\04Extended1\02.ValidatorContextScope.cs" />
+    <Compile Include="_Model\04Extended1\04.ExtendedControllerActionInvoker.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_Model\04Extended1\05.Base2Controller.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_Model\04Extended1\05.ValidatorBase2Attribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_Model\04Extended1\06.ExtendedDataAnnotationsModelValidatorProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_Model\04Extended1\07.RequiredValidator2Attribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_Model\04Extended1\24.DefaultMessageManager.cs" />
+    <Compile Include="_Model\04Extended1\22.MessageEntry.cs" />
+    <Compile Include="_Model\04Extended1\23.MessageManager1.cs" />
+    <Compile Include="_Model\04Extended1\25.MessageManagerFactory.cs" />
+    <Compile Include="_Model\04Extended1\21.MessageText.cs" />
+    <Compile Include="_View\SimpleRazorView.cs" />
+    <Compile Include="_View\SimpleRazorViewEngine.cs" />
+    <Compile Include="_View\StaticFileView.cs" />
+    <Compile Include="_View\StaticFileViewEngine.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ctrip.Component\Ctrip.Component.csproj">
+      <Project>{b5751de5-242d-42ee-97f2-58134808db9b}</Project>
+      <Name>Ctrip.Component</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ctrip.Resources\Ctrip.Resources.csproj">
+      <Project>{49f61f0b-d542-4633-8e71-9b3d3bf663e7}</Project>
+      <Name>Ctrip.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

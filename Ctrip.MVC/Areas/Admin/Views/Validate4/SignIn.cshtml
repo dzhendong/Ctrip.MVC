@@ -1,0 +1,14 @@
+﻿@using Ctrip.Model;
+
+@model LoginModel
+
+@{
+    ViewBag.Title = "SignIn";
+}
+@Html.ValidationSummary(false)
+
+@using(Html.BeginForm())
+{   
+    @Html.EditorForModel()   
+    <input type="submit" value="@Resources.SignIn"/>
+}

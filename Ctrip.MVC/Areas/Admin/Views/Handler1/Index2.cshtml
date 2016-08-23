@@ -1,0 +1,33 @@
+﻿@using System.Web.Http.Dispatcher;
+@using System.Web.Http.Controllers;
+
+@model IDictionary<string, HttpControllerDescriptor>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>HttpController 选择</title>
+</head>
+<body>
+   <table>
+       <tr>
+           <td>HttpControllerSelector</td>
+<td>@ViewBag.ControllerSelector.GetType() .Narne</td>
+
+       </tr>
+       @foreach (var item in Model)
+       { 
+        <tr>
+
+            <td>@item.Key</td><td>@item.Value.ControllerType.Name</td>
+        </tr>
+       }
+   </table>
+</body>
+</html>

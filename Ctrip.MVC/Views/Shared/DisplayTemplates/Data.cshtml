@@ -1,0 +1,23 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Data</title>
+    <script type="text/javascript">
+        $(function () {
+            $(".datepicker").datepicker({ "dateFormat": "yy-mm-dd" })
+        });
+    </script>
+</head>
+<body>
+    <div>
+        @Html.TextBox("", String.Format("{0:yyyy-MM-dd}"
+, ViewData.TemplateInfo.FormattedModelValue), new { @class = "datepicker" })
+    </div>
+</body>
+</html>

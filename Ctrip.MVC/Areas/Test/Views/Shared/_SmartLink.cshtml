@@ -1,0 +1,30 @@
+﻿@model Ctrip.Model.Employee1
+@{
+    //判断传过来的列名是否一致 是降序还是升序排列
+    var isDescending = string.CompareOrdinal(Model.SortBy, ViewData["ColumnName"].ToString()) == 0 && Model.SortAscending;
+
+    //路由数据 如：Employee/Sortable?sortBy=EmployeeNO&ascending=False
+    var routeData = new RouteValueDictionary { { "sortBy", ViewData["ColumnName"].ToString() }, { "ascending", !isDescending } };
+
+    var htmlAttributes = new Dictionary<string, object>();
+    
+    if (string.CompareOrdinal(Model.SortBy, ViewData["ColumnName"].ToString()) == 0)
+    {
+        if (Model.SortAscending)
+        {
+            htmlAttributes.Add("class", "sortAsc");//添加css样式
+        }
+        else
+        {
+            htmlAttributes.Add("class", "sortDesc");
+        }
+    }
+ 
+    @Html.ActionLink(
+        ViewData["DisplayName"].ToString(), // 链接文本 
+        Html.ViewContext.RouteData.Values["action"].ToString(), // Action 
+        Html.ViewContext.RouteData.Values["controller"].ToString(), // Controller 
+        routeData, // 路由数据
+        htmlAttributes //HTML属性适用于超链接
+    ) 
+}

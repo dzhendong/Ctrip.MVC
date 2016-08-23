@@ -1,0 +1,72 @@
+﻿@model Ctrip.Model.Employee3
+@{
+    ViewBag.Title = "Filterable";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Filterable</title>
+</head>
+<body>
+    <h2>
+        筛选列表</h2>
+    @using (Html.BeginForm("Filterable", "Employee", FormMethod.Get))
+    { 
+        <div>
+            <b>编号：</b>
+            @Html.TextBoxFor(o => o.EmployeeNO, new { size = 8 })
+            <b>种族：</b>
+            @Html.DropDownListFor(o => o.DepartmentID, Model.DepartmentList, "-- 所有分类 --")
+            <b>是否婚配：</b>
+            @Html.CheckBoxFor(o => o.IsMarital)
+            <input type="submit" value="查询" />
+        </div>
+        
+        <table border="1" width="100%" style="text-align: center; border-collapse: collapse">
+            <tr>
+                <th>
+                    编号
+                </th>
+                <th>
+                    姓名
+                </th>
+                <th>
+                    性别
+                </th>
+                <th>
+                    生日
+                </th>
+                <th>
+                    是否婚配
+                </th>
+            </tr>
+            @foreach (var item in Model.Employees)
+            { 
+                <tr>
+                    <td>@item.EmployeeNO
+                    </td>
+                    <td>@item.EmployName
+                    </td>
+                    <td>@item.Sex
+                    </td>
+                    <td>@string.Format("{0:yyyy年MM月dd日}", item.Birthday)
+                    </td>
+                    <td>
+                        @if (item.Marital == 1)
+                        {
+                            @:@("是")
+                                                                                                 }
+                        @if (item.Marital != 1)
+                        {
+                            @:@("否")
+                                                                                                  }
+                    </td>
+                </tr> 
+
+            }
+        </table>
+    }
+</body>
+</html>

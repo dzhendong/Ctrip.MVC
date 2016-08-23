@@ -1,0 +1,103 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>View1</title>
+    <style type="text/css">
+        body, input {
+            font-size: 9pt;
+        }
+
+        .input-validation-error {
+            border: 1px solid #ff0000;
+        }
+
+        .input-validation-valid {
+            border: 1px solid #00ff00;
+        }
+
+        .field-validation-error {
+            color: #ff0000;
+        }
+
+        .field-validation-valid {
+            display: none;
+        }
+
+        .validation-summary-errors {
+            font-weight: bold;
+            color: #ff0000;
+        }
+
+        .validation-summary-valid {
+            display: none;
+        }
+    </style>
+
+</head>
+<body>
+    <form id="form1" method="get">
+        <div data-valmsg-summary="true">
+            <ul></ul>
+        </div>
+        <div>
+            <input type="text" id="tReq" name="tReq" data-val="true" data-val-required="requried" />
+            <span data-valmsg-for="tReq"></span>
+        </div>
+        <div>
+            <input type="text" id="tAccept" name="tAccept" value="a.doc" data-val="true" data-val-accept="name must be .jpg、.gif or .png"
+                   data-val-accept-exts="jpg|gif|png" />
+            <span data-valmsg-for="tAccept"></span>
+        </div>
+        <div>
+            <input type="text" id="tRegex" name="tRegex" value="123-ABC@" data-val="true" data-val-regex="Format as 999-999"
+                   data-val-regex-pattern="[0-9A-Z]{3}-[0-9A-Z]{3}" />
+            <span data-valmsg-for="tRegex"></span>
+        </div>
+        <div>
+            <input type="text" id="tDigit" name="tDigit" value="-1234" data-val="true" data-val-digits="should be digital" />
+            <span data-valmsg-for="tDigit"></span>
+        </div>
+        <div>
+            <input type="text" id="tNum" name="tNum" value="-1,234.56A" data-val="true" data-val-number="should be number" />
+            <span data-valmsg-for="tNum"></span>
+        </div>
+        <div>
+            <input type="text" id="tDate" name="tDate" value="X/01/X2000" data-val="true" data-val-date="should be digital Date" />
+            <span data-valmsg-for="tDate"></span>
+        </div>
+        <div>
+            <input type="text" id="tEmail" name="tEmail" value="jeffrey @mail.com" data-val="true"
+                   data-val-email="should be Email" />
+            <span data-valmsg-for="tEmail"></span>
+        </div>
+        <div>
+            <input type="text" id="tUrl" name="tUrl" value="http:// blog.darkthread.net" data-val="true"
+                   data-val-url="should be url" />
+            <span data-valmsg-for="tUrl"></span>
+        </div>
+        <div>
+            <input type="text" id="tLen" name="tLen" value="TTT" data-val="true" data-val-length="Length  from 4 to 8"
+                   data-val-length-min="4" data-val-length-max="8" />
+            <span data-valmsg-for="tLen"></span>
+        </div>
+        <div>
+            <input type="text" id="tRange" name="tRange" value="5" data-val="true" data-val-range="range from 10 to100"
+                   data-val-range-min="10" data-val-range-max="100" />
+            <span data-valmsg-for="tRange"></span>
+        </div>
+        <div>
+            <input type="text" id="tEq" name="tEq" value="99" data-val="true" data-val-equalto="same as above value"
+                   data-val-equalto-other="tRange" />
+            <span data-valmsg-for="tEq"></span>
+        </div>
+        <div>
+            <input type="submit" id="send" value="Send" />
+    </form>
+</body>
+</html>

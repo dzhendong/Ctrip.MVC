@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0772389E-B4D1-4C4F-B3B3-18A8E3903BCD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ctrip.Controllers</RootNamespace>
+    <AssemblyName>Ctrip.Controllers</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\..\调研齐家\Assemblies\Microsoft.Practices\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\..\..\调研齐家\Assemblies\Microsoft.Practices\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\..\..\调研齐家\Assemblies\Microsoft.Practices\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception">
+      <HintPath>..\..\..\调研齐家\Assemblies\Microsoft.Practices\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration">
+      <HintPath>..\..\..\调研齐家\Assemblies\Microsoft.Practices\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Assemblies\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.SelfHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Web.Http.SelfHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Areas\Admin\Controllers\ActionResultController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\Admin\Controllers\AjaxController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\Admin\Controllers\BaseController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\Admin\Controllers\Bind1Controller.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\Admin\Controllers\Bind2Controller.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\Admin\Controllers\Bind3Controller.cs" />
+    <Compile Include="Areas\Admin\Controllers\FilterController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\Admin\Controllers\Handler1Controller.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\Admin\Controllers\MetaController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\Admin\Controllers\RemoteDataController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\Admin\Controllers\Validate1Controller.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\Admin\Controllers\Validate2Controller.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\Admin\Controllers\Validate4Controller.cs" />
+    <Compile Include="Areas\Admin\Controllers\Validate3Controller.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\Admin\Controllers\View1Controller.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\Test\Controllers\Asyn1Controller.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\Test\Controllers\Asyn2Controller.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\Test\Controllers\ChannelController.cs" />
+    <Compile Include="Areas\Test\Controllers\EmployeeController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\Test\Controllers\File2Controller.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\Test\Controllers\Grid1Controller.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\Test\Controllers\PersonController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\Test\Controllers\UnityController.cs" />
+    <Compile Include="Areas\Test\Controllers\ViewSwitcherController.cs" />
+    <Compile Include="Controllers\RechargeDomian.cs" />
+    <Compile Include="Controllers\Error\ErrorController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\Home\HomeController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\RSession\RSessionController.cs" />
+    <Compile Include="Controllers\User\UserController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ctrip.Component\Ctrip.Component.csproj">
+      <Project>{b5751de5-242d-42ee-97f2-58134808db9b}</Project>
+      <Name>Ctrip.Component</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ctrip.Model\Ctrip.Model.csproj">
+      <Project>{94ebecc9-3118-49e5-960d-1233b65042e5}</Project>
+      <Name>Ctrip.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ctrip.Test\Ctrip.Test.csproj">
+      <Project>{1319c974-be4c-4af7-8824-6bd2e601b506}</Project>
+      <Name>Ctrip.Test</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

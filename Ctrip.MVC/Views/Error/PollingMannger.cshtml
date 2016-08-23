@@ -1,0 +1,68 @@
+﻿<script type="text/javascript">
+
+    $(function () {
+        window.polling = {
+            ///长连接地址
+            connectionUrl: "/channel/polling",
+            ///发送方式 
+            method: "POST",
+            ///事件载体
+            event_host: $("body"),
+            ///连接失败时重连接时间
+            period: 1000 * 20,
+            ///连接超时时间
+            timeOut: 180 * 1000,
+            v: 0,
+            ///连接ID
+            id: "",
+            error_num: 0,
+            Reconnect: function () {
+                polling.v++;
+                $.ajax({
+                    url: polling.connectionUrl,
+                    type: polling.method,
+                    data: { id: polling.id, v: polling.v },
+                    dataType: "json",
+                    timeout: polling.timeOut,
+                    success: function (json) {
+                        polling.id = json.id;
+                        ///版本号相同才回发服务器
+                        if (json.v == polling.v)
+                            polling.Reconnect();
+                        ///无消息返回时不处理
+                        if (json.result == "-1")
+                            return;
+                        $.each(json.datas, function (i, ajaxData) {
+                            ajaxData.data.type = ajaxData.t;
+                            polling.event_host.triggerHandler("sys_msg", [ajaxData.data]);
+                        });
+                    }, ///出错时重连
+                    error: function () {
+                        if (polling.error_num < 5) {
+                            setTimeout(polling.Reconnect, 1000 * 2);
+                            polling.error_num++;
+                            return;
+                        }
+                        ///20秒后重新连接
+                        setTimeout(polling.Reconnect, polling.period);
+                    }, ///释放资源
+                    complete: function (XHR, TS) { XHR = null }
+                });
+            }
+        }
+        polling.Reconnect();
+        /*-----------------------------------------------------------------------------*/
+        ///新消息事件订阅
+        $("body").bind("sys_msg", function (event, json) {
+            if (json.type != "1")
+                return;
+            $("#new_msg").append($("<p>" + json.content + "</p>"));
+        });
+        /*-----------------------------------------------------------------------------*/
+        ///发送消息事件绑定
+        $("#sendMsg").click(function () {
+            var self = $(this);
+            $.post("/home/addnewmsg", $("#msg").serialize(), null, "json")
+        });
+    });
+</script>

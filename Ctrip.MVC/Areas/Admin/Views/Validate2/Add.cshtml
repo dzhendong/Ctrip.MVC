@@ -1,0 +1,50 @@
+﻿@using Ctrip.Model;
+
+@model OperationData
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<script type="text/javascript">
+    //扩展客户端验证
+    jQuery.validator.addMethod("agerange", function (value, element, params) {
+        value = value.replace(/ (^\s*) (\s*$) /g, "");
+        if (!value) {
+            return true;
+        }
+
+        var minAge = params.minage;
+        var maxAge = params.maxage;
+
+        var birthDateArray = value.split("-");
+        var birthDate = new Date(birthDateArray[O], birthDateArray[l], birthDateArray[2]);
+        var currentDate = new Date();
+        var age = currentDate.getFullYear() - birthDate.getFullYear();
+        return age >= minAge && age <= maxAge;
+    });
+
+    jQuery.validator.unobtrusive.adapters.add("agerange", ["minage" , "maxage"] ,
+        function (options) {
+        options.rules["agerange"] = {
+            minage: options.params.mlnage,
+            maxage: options.params.maxage
+        } ;
+        options.messages["agerange"] = options.message;
+});
+</script>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ValidationMessage</title>
+    <style type="text/css">
+        .field-validation-error {
+            color: Red;
+        }
+    </style>
+</head>
+<body>
+    @Html.EditorForModel()
+</body>
+</html>

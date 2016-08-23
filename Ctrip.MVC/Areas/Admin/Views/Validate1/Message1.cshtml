@@ -1,0 +1,32 @@
+﻿@using Ctrip.Model;
+
+@model Contact
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Html.ValidationMessage</title>
+    <style type="text/css">
+        .field-validation-error {
+            color: Red;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>@Html.ValidationMessage("Name")</li>
+        <li>@Html.ValidationMessage("PhoneNo")</li>
+        <li>@Html.ValidationMessage("ErnailAddress")</li>
+        <li>@Html.ValidationMessage("Address.Province")</li>
+        <li>@Html.ValidationMessage("Address.City")</li>
+        <li>@Html.ValidationMessage("Address.District")</li>
+        <li>@Html.ValidationMessage("Address.Street")</li>
+    </ul>
+</body>
+</html>

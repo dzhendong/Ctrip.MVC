@@ -1,0 +1,53 @@
+﻿@using System.Linq.Expressions
+@using System.Reflection
+@using Ctrip.Model
+
+@model ModelMetadataInfo
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>元数据</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Property</th>
+            @foreach (Expression<Func<ModelMetadata, object>> accessor in Model.PropertyAccessors)
+            {
+                MemberExpression rnernberExpression = accessor.Body as MemberExpression;
+
+                if (null == rnernberExpression)
+                {
+                    UnaryExpression convertExpression = accessor.Body as UnaryExpression;
+                
+                    if (null != convertExpression)
+                    {
+                        rnernberExpression = (MemberExpression)convertExpression.Operand;
+                    }
+                }
+
+                PropertyInfo propertylnfo = (PropertyInfo)rnernberExpression.Member;
+            
+                    <th>@propertylnfo.Name</th>
+            }
+        </tr>
+        @foreach (ModelMetadata metadata in Model.ModelMetadata.Properties)
+        {
+            <tr>
+                <td>@metadata.PropertyName</td>
+                @foreach (Expression<Func<ModelMetadata, object>> accessor in Model.PropertyAccessors)
+                {
+                    <td>@(accessor.Compile() (metadata) ?? "N/A") </td>
+                 }
+            </tr>
+        }
+    </table>
+</body>
+</html>

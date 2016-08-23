@@ -1,0 +1,30 @@
+﻿@model IEnumerable<ModelValidationResult>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>验证结果</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Member</th>
+            <th>Message</th>
+        </tr>
+        @foreach (ModelValidationResult result in Model)
+        {
+            string propertyName = string.IsNullOrEmpty(result.MemberName) ?"N/A" : result.MemberName;
+            <tr>
+                <td>@propertyName</td>
+                <td>@result.Message</td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

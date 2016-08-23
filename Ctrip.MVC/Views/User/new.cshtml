@@ -1,0 +1,33 @@
+﻿@model Ctrip.Model.User
+@{
+    ViewBag.Title = "新页面";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>New</title>
+
+</head>
+<body>
+    <h2>
+        New
+    </h2>
+
+    <div>
+        <h2>@ViewData["Message"]</h2>
+    </div>
+    <div>
+
+        @Html.ActionLink("用户登录", "LogOn")
+        @Html.ActionLink("用户主页", "Index", null, new { target = "_blank" })
+
+        @using (Html.BeginForm("New1", "User", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <input type="submit" value="Log in" />
+        }
+    </div>
+</body>
+</html>

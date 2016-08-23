@@ -1,0 +1,30 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>非移动设备</title>
+</head>
+<body>
+    <h2>非移动设备</h2>
+
+    <!--判断重写后的 UserAgent-->
+
+    @if (ViewContext.HttpContext.GetOverriddenBrowser().IsMobileDevice)
+    {
+        // ViewContext.HttpContext.GetOverriddenUserAgent()
+        
+        @: Displaying mobile view
+        @Html.ActionLink("Desktop view", "SwitchView", "ViewSwitcher", new { mobile = false }, null)
+    }
+    else
+    {
+        @: Displaying desktop view
+        @Html.ActionLink("Mobile view", "SwitchView", "ViewSwitcher", new { mobile = true }, null)
+    }
+</body>
+</html>

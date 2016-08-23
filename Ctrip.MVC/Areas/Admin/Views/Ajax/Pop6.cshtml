@@ -1,0 +1,340 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="~/Content/Scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <link href="~/Content/css/default.css" rel="stylesheet" />
+    <script type="text/javascript">
+        $(function () {
+            var dialog = new jqDialog();
+
+            $("#alert1").click(function () {
+                dialog.alert1("单独按钮", "普通提示普通提示普通提示", "", fn1);
+            });
+            $("#alert2").click(function () {
+                dialog.alert2("单独按钮", "带图标提示带图标提示", "", fn1);
+            });
+            $("#alert3").click(function () {
+                dialog.alert1("单独按钮", "普通提示自动关闭", "", fn1, true);
+            });
+            $("#confirm1").click(function () {
+                dialog.confirm1("确定", "取消", "普通提示普通提示普通提示", "", fn1, fn2);
+            });
+            $("#confirm2").click(function (e) {
+                dialog.confirm2("确定", "取消", "带图标普通提示带图标提示", "", fn1, fn2);
+            });
+            $("#confirm3").click(function (e) {
+                dialog.confirm2("确定", "取消", "带图标普通提示带图标提示", "", fn1, fn2, true);
+            });
+        });
+
+        function fn1() {
+            alert('a')
+        }
+        function fn2() {
+            alert('b')
+        }
+    </script>
+    <script type="text/javascript">
+        function jqDialog() {
+        }
+
+        jqDialog.cfn1;
+        jqDialog.bfn1;
+        jqDialog.bfn2;
+        jqDialog.timerMax = 3;
+        jqDialog.info = "√";
+        jqDialog.error = "X";
+        jqDialog.src1 = "/Content/images/u342.png"
+        jqDialog.src2 = "~/Content/images/u210.png"
+        jqDialog.src3 = "/Content/images/u212_line.png"
+        jqDialog.src4 = "/Content/images/transparent.png"
+        jqDialog.src5 = "/Content/images/u217_line.png"
+        jqDialog.src6 = "/Content/images/u9.png"
+
+
+        jqDialog._close = function () {
+            var msg = $('#msg');
+            msg[0].innerHTML = "";
+        }
+        jqDialog._c1fn = function () {
+            jqDialog._close();
+            jqDialog.cfn1 && jqDialog.cfn1();
+            jqDialog.cfn1 = null;
+        }
+        jqDialog._b1fn = function () {
+            jqDialog._close();
+            this.bfn1 && this.bfn1();
+            jqDialog.bfn1 = null;
+        }
+        jqDialog._b2fn = function () {
+            jqDialog._close();
+            jqDialog.bfn2 && jqDialog.bfn2();
+            jqDialog.bfn2 = null;
+        }
+
+        jqDialog.prototype.alert1 = function (btntext, text1, text2, fn1, autoClose) {
+            var msg = $('#msg');
+            jqDialog.cfn1 = fn1;
+            msg.append(this._a1());
+            msg.append(this._a2());
+            msg.append(this._h1());
+            msg.append(this._c1(btntext));
+            msg.append(this._t2(text1, text2));
+
+            if (autoClose) {
+                this._setAutoClose(fn1);
+            }
+        }
+        jqDialog.prototype.alert2 = function (btntext, text1, text2, fn1, autoClose) {
+            var msg = $('#msg');
+            jqDialog.cfn1 = fn1;
+            msg.append(this._a1());
+            msg.append(this._a2());
+            msg.append(this._h1());
+            msg.append(this._p1(jqDialog.info));
+            msg.append(this._c1(btntext));
+            msg.append(this._t1(text1, text2));
+
+            if (autoClose) {
+                this._setAutoClose(fn1);
+            }
+        }
+        jqDialog.prototype.confirm1 = function (btntext1, btntext2, text1, text2, fn1, fn2, autoClose) {
+            jqDialog.bfn1 = fn1;
+            jqDialog.bfn2 = fn2;
+            var msg = $('#msg');
+            msg.append(this._a1());
+            msg.append(this._a2());
+            msg.append(this._h1());
+            msg.append(this._v1());
+            msg.append(this._b1(btntext1));
+            msg.append(this._b2(btntext2));
+            msg.append(this._t2(text1, text2));
+
+            if (autoClose) {
+                this._setAutoClose(fn1);
+            }
+        }
+
+        jqDialog.prototype.confirm2 = function (btntext1, btntext2, text1, text2, fn1, fn2, autoClose) {
+            jqDialog.bfn1 = fn1;
+            jqDialog.bfn2 = fn2;
+            var msg = $('#msg');
+            msg.append(this._a1());
+            msg.append(this._a2());
+            msg.append(this._h1());
+            msg.append(this._v1());
+            msg.append(this._p1(jqDialog.info));
+            msg.append(this._b1(btntext1));
+            msg.append(this._b2(btntext2));
+            msg.append(this._t1(text1, text2));
+
+            if (autoClose) {
+                this._setAutoClose(fn1);
+            }
+        }
+        jqDialog.prototype._setAutoClose = function (fn) {
+            var span1 = $('#span1');
+            var text = span1[0].innerText;
+            span1.timer = window.setInterval(function () {
+                span1[0].innerText = "(" + jqDialog.timerMax + ")秒" + text
+                if (jqDialog.timerMax-- <= 0) {
+                    jqDialog.timerMax = 3;
+                    jqDialog._close();
+                    fn && fn.call();
+                    window.clearInterval(span1.timer);
+                }
+            }, 1000);
+        }
+
+        //背景
+        jqDialog.prototype._a1 = function () {
+            var html
+            = '<div id="u342" class="ax_shape">'
+            + '<img id="u342_img" class="img" src="/Content/images/u342.png" />'
+            + '<div idid="u343" class="text">'
+            + '<p><span>&nbsp;</span></p>'
+            + '</div>'
+            + '</div>';
+            var div1 = document.createElement("div");
+            div1.innerHTML = html;
+            return div1;
+        }
+        //方框
+        jqDialog.prototype._a2 = function () {
+            var html
+            = '<div id="u344" class="ax_shape">'
+            + '<img id="u344_img" class="img " src="/Content/images/u210.png" />'
+            + '<div id="u345" class="text">'
+            + '<p><span>&nbsp;</span></p>'
+            + '</div>'
+            + '</div>';
+            var div1 = document.createElement("div");
+            div1.innerHTML = html;
+            return div1;
+        }
+        //水平
+        jqDialog.prototype._h1 = function () {
+            var html
+            = '<div id="u346" class="ax_horizontal_line">'
+            + '<img id="u346_start" class="img " src="/Content/images/transparent.gif" alt="" />'
+            + '<img id="u346_end" class="img " src="/Content/images/transparent.gif" alt="" />'
+            + '<img id="u346_line" class="img " src="/Content/images/u212_line.png" alt="" />'
+            + '</div>';
+            var div1 = document.createElement("div");
+            div1.innerHTML = html;
+            return div1;
+        }
+        //垂直
+        jqDialog.prototype._v1 = function () {
+            var html
+            = '<div id="u353" class="ax_vertical_line">'
+            + '<img id="u353_start" class="img " src="/Content/images/transparent.gif" alt="" />'
+            + '<img id="u353_end" class="img " src="/Content/images/transparent.gif" alt="" />'
+            + '<img id="u353_line" class="img " src="/Content/images/u217_line.png" alt="" />'
+            + '</div>';
+            var div1 = document.createElement("div");
+            div1.innerHTML = html;
+            return div1;
+        }
+        //提醒图标
+        jqDialog.prototype._p1 = function (text) {
+            var html
+           = '<div id="u351" class="ax_shape">'
+           + '<img id="u351_img" class="img " src="/Content/images/u9.png">'
+           + '<div id="u352" class="text" style="top: 2px; -webkit-transform-origin: 27.5px 27.5px;">'
+           + '<p><span>' + text + '</span></p>'
+           + '</div>';
+            var div1 = document.createElement("div");
+            div1.innerHTML = html;
+            return div1;
+        }
+        //左按钮
+        jqDialog.prototype._b1 = function (btntext1) {
+            var html
+           = '<div id="u347" class="ax_paragraph" style="">'
+           + '<img id="u347_img" class="img " src="/Content/images/transparent.gif" />'
+           + '<div id="u348" class="text" style="">'
+           + '<p><span style="cursor:default;" onclick="jqDialog._b1fn();">' + btntext1 + '</span></p>'
+           + '</div>';
+            var div1 = document.createElement("div");
+            div1.innerHTML = html;
+            return div1;
+        }
+        //右按钮
+        jqDialog.prototype._b2 = function (btntext2) {
+            var html
+           = '<div id="u354" class="ax_paragraph" style="">'
+           + '<img id="u354_img" class="img " src="/Content/images/transparent.gif" />'
+           + '<div id="u355" class="text" style="">'
+           + '<p><span style="cursor:default;" onclick="jqDialog._b2fn();">' + btntext2 + '</span></p>'
+           + '</div>';
+            var div1 = document.createElement("div");
+            div1.innerHTML = html;
+            return div1;
+        }
+        //单独按钮
+        jqDialog.prototype._c1 = function (btntext) {
+            var html
+           = '<div id="u182" class="ax_paragraph" style="">'
+           + '<img id="u347_img" class="img " src="/Content/images/transparent.gif" />'
+           + '<div id="u348" class="text" style="">'
+           + '<p><span style="cursor:default;" onclick="jqDialog._c1fn();">' + btntext + '</span></p>'
+           + '</div>';
+            var div1 = document.createElement("div");
+            div1.innerHTML = html;
+            return div1;
+        }
+        //左边带图标的文字
+        jqDialog.prototype._t1 = function (text1, text2) {
+            var html
+               = '<div id="u349" class="ax_paragraph" style="">'
+               + '<img id="u349_img" class="img " src="/Content/images/transparent.gif" />'
+               + '<div id="u350" class="text" style="">'
+               + '<p style="font-size:18px;">'
+               + '<span>' + text1 + '</span>'
+               + '</p>'
+               + '<p style="font-size:14px;">'
+               + '<span id="span1">' + text2 + '</span>'
+               + '</p></div>'
+               + '</div>';
+            var div1 = document.createElement("div");
+            div1.innerHTML = html;
+            return div1;
+        }
+        //单独文字
+        jqDialog.prototype._t2 = function (text1, text2) {
+            var html
+               = '<div id="u210" class="ax_paragraph" style="">'
+               + '<img id="u210_img" class="img " src="/Content/images/transparent.gif" />'
+               + '<div id="u211" class="text" style="font-size:18px;">'
+               + '<p><span>' + text1 + '</span></p>'
+               + '<p><span id="span1">' + text2 + '</span></p>'
+               + '</div>'
+               + '</div>';
+            var div1 = document.createElement("div");
+            div1.innerHTML = html;
+            return div1;
+        }
+    </script>
+    <script type="text/javascript">
+
+    </script>
+</head>
+<body>
+    <input type="button" id="alert1" value="普通提示" />
+    <input type="button" id="alert2" value="带图标提示" />
+    <input type="button" id="alert3" value="普通提示自动关闭" />
+    <input type="button" id="confirm1" value="普通对话框" />
+    <input type="button" id="confirm2" value="带图标对话框" />
+    <input type="button" id="confirm3" value="普通对话框自动关闭" />
+    <div id="msg"></div>
+    <script type="text/javascript">
+        function test() {
+            var scr1 = "/Content/images/u342.png";
+
+            var span1 = createSpan("AA");
+            var p1 = createP();
+            var div2 = createDiv("u343", "text");
+            var img1 = createImg("u342_img", "img", scr1);
+            var div1 = createDiv("u342", "bt");
+
+            p1.appendChild(span1);
+            div2.appendChild(p1);
+            div1.appendChild(img1);
+            div1.appendChild(div2);
+
+            document.body.appendChild(div1);
+
+            return;
+        }
+
+        function createDiv(id, cls) {
+            var div1 = document.createElement('div');
+            div1.id = id;
+            div1.setAttribute("className", cls);
+            div1.setAttribute("class", cls);
+            return div1;
+        }
+        function createImg(id, cls, src) {
+            img1 = new Image();
+            img1.id = id;
+            img1.src = src;
+            img1.setAttribute("className", cls);
+            img1.setAttribute("class", cls);
+            return img1;
+        }
+        function createP() {
+            var p1 = document.createElement('p');
+            return p1;
+        }
+        function createSpan(value) {
+            var span1 = document.createElement('span');
+            span1.innerText = value;
+            return span1;
+        }
+    </script>
+</body>
+</html>

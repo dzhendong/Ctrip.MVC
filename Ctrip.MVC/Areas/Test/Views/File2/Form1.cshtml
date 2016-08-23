@@ -1,0 +1,80 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Form1</title>
+    <script language="javascript">
+        //点击提交按钮触发下面的函数
+        function submitit() {
+            //第一个表单
+            var tform1 = document.getElementById("form1");
+            //第二个表单
+            var tform2 = document.getElementById("form2");
+
+            //提交第一个表单
+            tform1.submit();
+            //提交第二个表单
+            tform2.submit();
+        }
+
+        function tosubmit1() {
+            document.submitform1.action = "1.asp";
+            document.submitform1.submit();
+        }
+        function tosubmit2() {
+            document.submitform1.action = "2.asp";
+            document.submitform1.submit();
+        }
+        function tosubmit3() {
+            document.submitform1.action = "3.asp";
+            document.submitform1.submit();
+        }
+        function dothis(obj) {
+            switch (obj.value) {
+                case "提交给1.asp":
+                    document.submitform3.action = "1.asp";
+                    break;
+                case "提交给2.asp":
+                    document.submitform3.action = "2.asp";
+                    break;
+                case "提交给3.asp":
+                    document.submitform3.action = "3.asp";
+                    break;
+            }
+        }
+    </script>
+</head>
+<body>
+    <!--  第一个表单,方法为post,会触发后台的login.do对应的servlet ,提交到_hiddenframe1里了，即login.do返回的结果会隐藏在_hiddenframe1中-->  
+    <form name="form1" id="formid1" action="form1" method="post" target="_hiddenframe1">
+        <input type="text" name="tname" value="张三">
+        <input type="button" name="tsub" value="提交" onclick="javascript:submitit();">
+    </form>
+
+        <!--  第二个表单,方法为post,会触发后台的sms.do对应的servlet ,提交到_hiddenframe2里了，即sms.do返回的结果会隐藏在_hiddenframe2中.其中通过style="display:none;"进行了隐藏。 -->
+    <form name="from2" id="formid2" action="form2" method="post" style="display:none;" target="_hiddenframe2">
+        <input type="text" name="tname" value="王五">
+    </form>
+
+    <iframe name="_hiddenframe1" style="display:none;"></iframe>
+
+    <iframe name="_hiddenframe2"></iframe>
+
+    <form name="submitform2" action="" method="post" target="_blank">
+        <input name="submit1" value="提交给1.asp" type="button" onclick="submitform2.action='1.asp';submitform2.submit();">
+        <input name="submit2" value="提交给1.asp" type="button" onclick="submitform2.action='2.asp';submitform2.submit();">
+        <input name="submit3" value="提交给1.asp" type="button" onclick="submitform2.action='3.asp';submitform2.submit();">
+    </form>
+
+    <form name="submitform3" action="" method="post" target="_blank">
+        <input type="submit" name="submit1" value="提交给1.asp" onclick="dothis(this)">
+        <input type="submit" name="submit2" value="提交给2.asp" onclick="dothis(this)">
+        <input type="submit" name="submit3" value="提交给3.asp" onclick="dothis(this)">
+    </form>
+</body>
+</html>

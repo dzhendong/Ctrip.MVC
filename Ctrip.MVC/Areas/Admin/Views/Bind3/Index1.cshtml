@@ -1,0 +1,26 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>上传文件</title>
+</head>
+<body>
+    @{
+        using (Html.BeginForm("DisplayPostedFiles", "Bind3",
+            FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <ul>
+                <li>File 1: <input type="file" name="foo" /></li>
+                <li>File 2: <input type="file" name="foo" /></li>
+                <li>File 3: <input type="file" name="bar" /></li>
+            </ul>
+            <input type="submit" value="提交" />
+        }
+    }
+</body>
+</html>

@@ -1,0 +1,29 @@
+﻿@model IDictionary<string, object>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>绑定的参数</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Value</th>
+        </tr>
+        @foreach (var item in Model)
+        { 
+            <tr>
+                <td>@item.Key</td>
+                <td>@item.Value</td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

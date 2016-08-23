@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Ctrip.Model.Employee>
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="@Url.Content("~/Content/Scripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
+</head>
+<body>
+    <h2>
+        成员列表</h2>
+    <table border="1" width="100%" style="text-align: center; border-collapse: collapse">
+        <tr>
+            <th>
+                编号
+            </th>
+            <th>
+                姓名
+            </th>
+            <th>
+                性别
+            </th>
+            <th>
+                生日
+            </th>
+            <th>
+                是否婚配
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        { 
+
+            <tr>
+                <td>@item.EmployeeNO
+                </td>
+                <td>@item.EmployName
+                </td>
+                <td>@item.Sex
+                </td>
+                <td>@string.Format("{0:yyyy年MM月dd日}", item.Birthday)
+                </td>
+                <td>
+                    @if (item.Marital == 1)
+                    {
+                        @:@("是")
+                                                 }
+                    @if (item.Marital != 1)
+                    {
+                        @:@("否")
+                                                  }
+                </td>
+            </tr> 
+
+        }
+    </table>
+    <div id="ValidateCodeSpan">
+        请输入验证码：@Html.TextBox("VCode")        
+        @*<img src='@Url.Action("Checkcode")' width="110" height="32" alt="。。" />*@
+        <img id="valiCode" src='@Url.RouteUrl("Default", new { controller = "Shared", action = "Checkcode" })' width="110" height="32" alt="。。" />
+
+        @Html.Hidden("ValidateCode")
+        <script type="text/javascript">
+            $(function () {
+                //首次加载
+                $("#valiCode").attr("src", "/Shared/Checkcode?time=" + (new Date()).getTime());
+                $.get("/Shared/GetCurrentValidateCode", function (data) {
+                    $("#ValidateCode").val(data);
+                });
+                //单击验证码事件
+                $("#valiCode").bind("click", function () {
+                    this.src = "/Shared/Checkcode?time=" + (new Date()).getTime();
+                    $.get("/Shared/GetCurrentValidateCode", function (data) {
+                        $("#ValidateCode").val(data);
+                    });
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>

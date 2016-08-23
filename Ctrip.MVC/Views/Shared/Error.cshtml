@@ -1,0 +1,21 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+@{
+    ViewBag.Title = "General Site Error";
+}
+<h2>
+    一般的错误发生
+</h2>
+<h2>
+    定位到 Views\Shared\Error1.cshtml</h2>
+<h2>
+    接收HandleErrorInfo参数</h2>
+@if (Model != null)
+{
+    <p>@Model.Exception.GetType().Name<br />
+        thrown in @Model.ControllerName @Model.ActionName</p>
+    <p>
+        Error Details:</p>
+    <p>@Model.Exception.Message</p>
+    
+   <span>@TempData["A"]</span>   
+}

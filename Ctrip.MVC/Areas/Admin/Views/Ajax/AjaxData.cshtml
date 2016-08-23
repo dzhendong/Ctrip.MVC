@@ -1,0 +1,12 @@
+﻿@using Ctrip.Model
+
+@model IEnumerable<Person1>
+
+@foreach (Person1 p in Model)
+{
+    <tr>
+        <td>@p.ID</td>
+        <td>@p.Name</td>
+        <td>@p.Role</td>
+    </tr>
+}
